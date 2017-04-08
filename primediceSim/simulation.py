@@ -219,7 +219,7 @@ class AverageResults:
         # one list of sums
 
         sum_list = [sum(balances) for balances in
-                    itertools.zip_longest(*self.total_balances_list,
+                    itertools.izip_longest(*self.total_balances_list,
                                           fillvalue=0)]
 
         # Take the list of sums, and divide each one by the number of data
@@ -239,7 +239,7 @@ class AverageResults:
         print("[Progress] Calculating median balances...")
         start_time = time.time()
 
-        equal_length_total_balances = itertools.zip_longest(
+        equal_length_total_balances = itertools.izip_longest(
             *self.total_balances_list, fillvalue=0)
 
         grouped_balances = zip(equal_length_total_balances)
